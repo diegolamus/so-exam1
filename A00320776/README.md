@@ -79,6 +79,28 @@ Para verificar que la ejecución del script fuera correcta se verificó el estad
 En la imagen se puede observar que se actualiza el libro a los cinco minutos después de la última actualización.
 
 
+**7.** Analisis codigo rickroll
+
+El código realiza las siguientes instrucciones al cargar el modulo:
+* Comprueba que existe la variable “rickroll_filename”; si existe continua, de lo contrario se detiene la ejecución.
+* Revisa que “sys_call_table” existe y esté asignada a la tabla del sistemas; si existe continua, de lo contrario se detiene la ejecución.
+* Deshabilita la protección de escritura.
+* Guarda la función original de entrada en la “sys_call_table” del código.
+* Reemplaza en la “sys_call_table” la entreda del programa por la función del código“rickroll_open”.
+* Habilita la protección de escritura.
+
+Cuando se ejecuta el código se realizan las siguientes instrucciones.
+* Comprueba si el archivo que se intenta abrir tiene extensión “.mp3”; si la tiene continua, en caso contrario se abre normalmente.
+* Si tiene extensión “.mp3” se secuestra la apertura cambiando temporalmente el segmento de registro que apunta a el archivo que se quiere abrir haciendo que apunte a “rickroll_filename”, haciendo que se abra el archivo rickroll en su lugar.
+
+Cuando se cierra el proceso se restaura la tabla de apertura original.
+		
+
+En general lo que hace el código rickroll.c es secuestrar la apertura de un archivo cuando este tiene extensión “.mp3”; en su lugar abre un archivo predeterminado; en el caso configurado “Rick Astley - Never Gonna Give You Up.mp3".
+
+* En el siguiente video en youtube se puede observar el funcionamiento del código al cargarlo al kernel de ubuntu: 
+
+
 
 
 
