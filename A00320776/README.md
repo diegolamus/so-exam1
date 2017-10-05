@@ -98,7 +98,6 @@ Cuando se cierra el proceso se restaura la tabla de apertura original.
 
 En general lo que hace el código rickroll.c es secuestrar la apertura de un archivo cuando este tiene extensión “.mp3”; en su lugar abre un archivo predeterminado; en el caso configurado “Rick Astley - Never Gonna Give You Up.mp3".
 
-* En el siguiente video en youtube se puede observar el funcionamiento del código al cargarlo al kernel de ubuntu: 
 
 
 
